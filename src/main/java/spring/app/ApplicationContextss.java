@@ -25,9 +25,9 @@ public class ApplicationContextss {
         // 从 context 中取出我们的 Bean，而不是用 new MessageServiceImpl() 这种方式
         //System.out.println(context.getBean(User.class));
       //  System.out.println(context.getBean("myBeanFactory"));
-        for (String s : context.getBeanDefinitionNames()) {
+       /* for (String s : context.getBeanDefinitionNames()) {
             System.out.println(s);
-        }
+        }*/
         UserService bean = context.getBean(UserService.class);
        // bean.getUserName();
         // 这句将输出: hello world
