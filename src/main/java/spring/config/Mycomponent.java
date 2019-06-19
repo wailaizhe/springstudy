@@ -12,6 +12,7 @@ import java.lang.annotation.RetentionPolicy;
  * @date 2019年06月18日 14:12:20.
  */
 @Retention(RetentionPolicy.RUNTIME)
+// 此注解就是为 MyImportBeanDefinitionRegister 扫描用的
 @Import(MyImportBeanDefinitionRegister.class)
 public @interface Mycomponent {
 }

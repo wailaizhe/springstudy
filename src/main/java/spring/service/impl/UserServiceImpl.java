@@ -21,8 +21,11 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
     public String getUserName() {
-       cityDao.query();
-        userDao.query();
+        System.out.println("get name");
         return "this is name";
+    }
+
+    public void getUser(String name) {
+
     }
 }

@@ -9,4 +9,5 @@ package spring.service;
 
 public interface UserService {
     String getUserName();
+    void getUser(String name);
 }
