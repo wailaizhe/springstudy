@@ -6,9 +6,7 @@ import javax.tools.StandardJavaFileManager;
 import javax.tools.ToolProvider;
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -16,7 +14,7 @@ import java.net.URLClassLoader;
 /**
  * @author 石亚宁
  * @version 1.0.0.1
- * @description:
+ * @description: 动态代理的实现
  * @date 2019年06月19日 15:10:11.
  *
  * " "package spring.proxy;
@@ -25,7 +23,7 @@ import java.net.URLClassLoader;
 
 public class ProxyUtil {
 
-    public static Object newInstanceProxy(Object target) throws IOException, ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+    public static Object newInstanceProxy(Object target) throws Exception {
         StringBuilder builder=new StringBuilder();
         // 1.包名
         String packageStr="package spring ;" ;

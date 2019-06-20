@@ -11,6 +11,7 @@ import spring.service.CityService;
 
 public class CityServiceImpl implements CityService {
     public String getCityName() {
+        System.out.println("this is city name");
         return "this is beijing";
     }
 }
