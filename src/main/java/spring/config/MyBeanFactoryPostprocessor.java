@@ -10,6 +10,7 @@ import spring.entity.User;
  * @author 石亚宁
  * @version 1.0.0.1
  * @description:动态改变bean的类
+ * bean 工厂的后置处理器
  * @date 2019年06月18日 11:04:05.
  */
 

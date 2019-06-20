@@ -15,6 +15,7 @@ import java.net.URLClassLoader;
  * @author 石亚宁
  * @version 1.0.0.1
  * @description: 动态代理的实现
+ *  1.拼接一个java文件，编译成class文件，通过反射获取出代理对象的实例
  * @date 2019年06月19日 15:10:11.
  *
  * " "package spring.proxy;

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import spring.config.Mycomponent;
+import spring.config.aop.EableBeanPostProccesor;
 import spring.service.UserService;
 
 /**
@@ -14,6 +15,8 @@ import spring.service.UserService;
  */
 @Configurable
 @ComponentScan("spring.*")
+//@EnableAspectJAutoProxy
+@EableBeanPostProccesor
 @Mycomponent
 public class ApplicationContextss {
     public static void main(String[] args) {
