@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="30">
+	<Properties>
+		<Property name="baseLogDir">/data/app-key-customer-api-log</Property>
+	</Properties>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%-5level] %l \: %msg%n" />
+		</Console>
+		<!-- 记录所有日志-->
+		<RollingFile name="allLog" fileName="${baseLogDir}/all.log"
+			filePattern="${baseLogDir}/all.log.%d{yyyy-MM-dd}">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%-5level] %c(%M) \: %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+			</Policies>
+		</RollingFile>
+		<!-- 只记录错误日志-->
+		<RollingFile name="errorLog" fileName="${baseLogDir}/error.log"
+			filePattern="${baseLogDir}/error.log.%d{yyyy-MM-dd}">
+			<ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} [%-5level] %l \: %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+			</Policies>
+		</RollingFile>
+		<!--记录app崩溃日志  -->
+		<RollingFile name="clientLog" fileName="${baseLogDir}/clientLog.log"
+					 filePattern="${baseLogDir}/clientLog.log.%d{yyyy-MM-dd}">
+			<ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+			</Policies>
+		</RollingFile>
+		<!-- 业务操作日志 -->
+
+		<RollingFile name="operateLog" fileName="${baseLogDir}/operateLogFile.log"
+					 filePattern="${baseLogDir}/operateLogFile.log.%d{yyyy-MM-dd}">
+			<ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+			</Policies>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<!--操作日志类路径  additivity="false" 不重复向上级logger记录-->
+		<!--<Logger name="mq" level="error" additivity="false">
+			<AppenderRef ref="mqFile"/>
+		</Logger>-->
+		<!-- 在mybatis配置文件里配置了使用log4j进行输出，再通过这个logger打印sql，name是根据mybatis每个mapping文件的namespace决定的，结果将输出在catalina.out，级别必须是trace才能输出 -->
+		<Logger name="com.xinmt.keycustomer.app.dao" level="error" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+		
+		<Root level="info">
+			<AppenderRef ref="allLog" />
+			<AppenderRef ref="errorLog" />
+			<AppenderRef ref="clientLog" />
+		</Root>
+	</Loggers>
+	
+</Configuration>

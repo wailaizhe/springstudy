@@ -1,6 +1,7 @@
 package spring.dao;
 
-import spring.config.MySelect;
+import org.apache.ibatis.annotations.Select;
+import org.mybatis.spring.annotation.MapperScan;
 
 /**
  * @author 石亚宁
@@ -8,8 +9,8 @@ import spring.config.MySelect;
  * @description:
  * @date 2019年06月13日 17:24:41.
  */
-
+@MapperScan
 public interface CityDao {
-    @MySelect("select * from city")
+    @Select("select * from city")
     String query();
 }
