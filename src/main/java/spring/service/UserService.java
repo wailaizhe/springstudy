@@ -1,6 +1,7 @@
 package spring.service;
 
 import spring.entity.User;
+import spring.page.PageParams;
 
 /**
  * @author 石亚宁
@@ -13,4 +14,5 @@ public interface UserService {
     String getUserName();
     void getUser(String name);
     User getUser(Integer id);
+    PageParams<User> getUserPage(PageParams pageParams);
 }

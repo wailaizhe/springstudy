@@ -2,6 +2,9 @@ package spring.dao;
 
 import org.apache.ibatis.annotations.Select;
 import spring.entity.User;
+import spring.page.PageParams;
+
+import java.util.List;
 
 /**
  * @author 石亚宁
@@ -15,4 +18,6 @@ public interface UserDao {
     String query();
     @Select("select * from user where id =#{id}")
     User getUser(Integer id);
+    @Select("select * from user")
+    List<User> getUserPage(PageParams pageParams);
 }

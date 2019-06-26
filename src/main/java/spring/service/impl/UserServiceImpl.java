@@ -5,7 +5,10 @@ import org.springframework.stereotype.Service;
 import spring.dao.CityDao;
 import spring.dao.UserDao;
 import spring.entity.User;
+import spring.page.PageParams;
 import spring.service.UserService;
+
+import java.util.List;
 
 /**
  * @author 石亚宁
@@ -31,5 +34,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUser(Integer id) {
         return userDao.getUser(id);
+    }
+
+    @Override
+    public PageParams<User> getUserPage(PageParams pageParams) {
+        List<User> userPage = userDao.getUserPage(pageParams);
+        pageParams.setList(userPage);
+        return pageParams;
     }
 }

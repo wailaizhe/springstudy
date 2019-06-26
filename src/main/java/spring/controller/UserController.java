@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import spring.entity.User;
+import spring.page.PageParams;
 import spring.service.UserService;
 
 /**
@@ -20,5 +21,14 @@ public class UserController {
     @RequestMapping("/name")
     public User getName(Integer id){
         return userService.getUser(id);
+    }
+    @RequestMapping("page")
+    public PageParams<User> pageUser(){
+        PageParams pageParams=new PageParams();
+        pageParams.setCheckFlag(false);
+        pageParams.setUseFlag(true);
+        pageParams.setPageSize(2);
+        pageParams.setPage(1);
+        return userService.getUserPage(pageParams);
     }
 }

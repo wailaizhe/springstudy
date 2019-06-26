@@ -1,6 +1,7 @@
 package spring.proxy;
 
 import spring.entity.User;
+import spring.page.PageParams;
 import spring.service.UserService;
 
 /**
@@ -28,6 +29,11 @@ public class TimerProxy implements UserService {
 
     @Override
     public User getUser(Integer id) {
+        return null;
+    }
+
+    @Override
+    public PageParams<User> getUserPage(PageParams pageParams) {
         return null;
     }
 }

@@ -49,9 +49,9 @@ public Object intercept(Invocation invocation) throws Throwable {
     }
     BoundSql boundSql = (BoundSql) metaStatementHandler.getValue("delegate.boundSql");
     Object parameterObject = boundSql.getParameterObject();
-   // PageParams pageParams = getPageParams(parameterObject);
-    PageParams pageParams =new PageParams();
-    pageParams.setPageSize(10);
+   PageParams pageParams = getPageParams(parameterObject);
+   // PageParams pageParams =new PageParams();
+
     if (pageParams == null)
         return invocation.proceed();
     //获取分页参数，获取不到的时候使用默认值

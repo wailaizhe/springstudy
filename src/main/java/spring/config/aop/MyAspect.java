@@ -29,8 +29,8 @@ public class MyAspect  {
         Signature signature = joinPoint.getSignature();
         MethodSignature methodSignature = (MethodSignature) signature;
         Method method = methodSignature.getMethod();
-        String annotation = method.getAnnotation( Select.class).value()[0];
-        if (annotation!=null){
+        if(method.getAnnotation( Select.class)!=null){
+            String annotation = method.getAnnotation( Select.class).value()[0];
             System.out.println(annotation);
         }
 

@@ -3,7 +3,9 @@ package spring.page;
 import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.reflection.SystemMetaObject;
 
-public class PageParams {
+import java.util.List;
+
+public class PageParams<T> {
 	
 	private Integer pageSize=10;
 	private Integer page=1;
@@ -12,7 +14,16 @@ public class PageParams {
 	private Integer totalPage;
 	private Integer total;
 
-	
+	private List<T> list ;
+
+	public List<T> getList() {
+		return list;
+	}
+
+	public void setList(List<T> list) {
+		this.list = list;
+	}
+
 	public static void main(String[] args) {
 		PageParams pageParams=new PageParams();
 		MetaObject metaStatementHandler = SystemMetaObject.forObject(pageParams);
