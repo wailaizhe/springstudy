@@ -1,5 +1,7 @@
 package spring.service;
 
+import spring.entity.User;
+
 /**
  * @author 石亚宁
  * @version 1.0.0.1
@@ -10,4 +12,5 @@ package spring.service;
 public interface UserService {
     String getUserName();
     void getUser(String name);
+    User getUser(Integer id);
 }

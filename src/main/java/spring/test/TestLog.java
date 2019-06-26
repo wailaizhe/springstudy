@@ -1,7 +1,6 @@
 package spring.test;
 
 import spring.log.Jul;
-import spring.log.Log4j;
 import spring.log.Slf4j;
 import spring.log.SpringLog;
 
@@ -14,7 +13,7 @@ import spring.log.SpringLog;
 
 public class TestLog {
     public static void main(String[] args) {
-        Log4j.main();
+       // Log4j.main();
         Jul.main();
         Slf4j.main();
         SpringLog.main();

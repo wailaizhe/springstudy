@@ -1,6 +1,7 @@
 package spring.config;
 
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Lazy;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -11,6 +12,7 @@ import java.lang.annotation.RetentionPolicy;
  * @description:自定义注解扫描
  * @date 2019年06月18日 14:12:20.
  */
+@Lazy
 @Retention(RetentionPolicy.RUNTIME)
 // 此注解就是为 MyImportBeanDefinitionRegister 扫描用的
 @Import(MyImportBeanDefinitionRegister.class)

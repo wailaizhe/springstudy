@@ -4,7 +4,9 @@ import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.core.type.AnnotationMetadata;
+import org.springframework.stereotype.Component;
 
 /**
  * @author 石亚宁
@@ -12,7 +14,8 @@ import org.springframework.core.type.AnnotationMetadata;
  * @description: 将bean注入spring容器
  * @date 2019年06月18日 11:33:05.
  */
-
+@Lazy
+@Component
 public class MyImportBeanDefinitionRegister implements ImportBeanDefinitionRegistrar {
     public void registerBeanDefinitions(AnnotationMetadata annotationMetadata, BeanDefinitionRegistry beanDefinitionRegistry) {
         // 扫描包获取对象bean的list，循环将bean注入到beanDefinition容器
@@ -22,9 +25,9 @@ public class MyImportBeanDefinitionRegister implements ImportBeanDefinitionRegis
         beanDefinitionRegistry.registerBeanDefinition("userDao",beanDefinition);
 
 
-        BeanDefinitionBuilder beanDefinitionBuilder2 = BeanDefinitionBuilder.genericBeanDefinition(MyFactoryBean.class);
+       /* BeanDefinitionBuilder beanDefinitionBuilder2 = BeanDefinitionBuilder.genericBeanDefinition(MyFactoryBean.class);
         AbstractBeanDefinition beanDefinition2 = beanDefinitionBuilder2.getBeanDefinition();
         beanDefinition2.getConstructorArgumentValues().addGenericArgumentValue("spring.dao.CityDao");
-        beanDefinitionRegistry.registerBeanDefinition("cityDao",beanDefinition2);
+        beanDefinitionRegistry.registerBeanDefinition("cityDao",beanDefinition2);*/
     }
 }

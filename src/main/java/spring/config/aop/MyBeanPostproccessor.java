@@ -14,6 +14,7 @@ import spring.service.UserService;
  * @description: 模拟后置处理器
  * @date 2019年06月20日 13:39:11.
  */
+
 public class MyBeanPostproccessor implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {

@@ -1,7 +1,7 @@
 package spring.dao;
 
-import org.mybatis.spring.annotation.MapperScan;
-import spring.config.MySelect;
+import org.apache.ibatis.annotations.Select;
+import spring.entity.User;
 
 /**
  * @author 石亚宁
@@ -9,8 +9,10 @@ import spring.config.MySelect;
  * @description:
  * @date 2019年06月13日 17:24:41.
  */
-@MapperScan
+
 public interface UserDao {
-    @MySelect("select * from user")
+    @Select("select * from user")
     String query();
+    @Select("select * from user where id =#{id}")
+    User getUser(Integer id);
 }

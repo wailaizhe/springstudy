@@ -1,5 +1,6 @@
 package spring.proxy;
 
+import spring.entity.User;
 import spring.service.UserService;
 
 /**
@@ -23,5 +24,10 @@ public class LogProxy implements UserService {
 
     public void getUser(String name) {
 
+    }
+
+    @Override
+    public User getUser(Integer id) {
+        return null;
     }
 }

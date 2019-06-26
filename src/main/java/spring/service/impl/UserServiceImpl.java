@@ -1,10 +1,10 @@
 package spring.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import spring.dao.CityDao;
 import spring.dao.UserDao;
+import spring.entity.User;
 import spring.service.UserService;
 
 /**
@@ -13,8 +13,7 @@ import spring.service.UserService;
  * @description:
  * @date 2019年06月13日 17:29:10.
  */
-@Component
-@Service("userService")
+@Service
 public class UserServiceImpl implements UserService {
    @Autowired
     private CityDao cityDao;
@@ -27,5 +26,10 @@ public class UserServiceImpl implements UserService {
 
     public void getUser(String name) {
 
+    }
+
+    @Override
+    public User getUser(Integer id) {
+        return userDao.getUser(id);
     }
 }

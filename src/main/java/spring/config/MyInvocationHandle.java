@@ -1,5 +1,6 @@
 package spring.config;
 
+import org.apache.ibatis.annotations.Select;
 import org.springframework.cglib.proxy.InvocationHandler;
 
 import java.lang.reflect.Method;
@@ -15,7 +16,7 @@ import java.lang.reflect.Method;
 public class MyInvocationHandle implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
-        System.out.println(method.getAnnotation( MySelect.class).value()[0]);
-        return null;
+        System.out.println(method.getAnnotation( Select.class).value()[0]);
+        return proxy;
     }
 }
