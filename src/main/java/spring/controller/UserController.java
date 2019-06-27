@@ -3,7 +3,8 @@ package spring.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import spring.entity.User;
+import spring.entity.RespBean;
+import spring.exception.ParameterException;
 import spring.page.PageParams;
 import spring.service.UserService;
 
@@ -19,16 +20,25 @@ public class UserController {
     @Autowired
     private UserService userService;
     @RequestMapping("/name")
-    public User getName(Integer id){
-        return userService.getUser(id);
+    public RespBean getName(Integer id)  {
+        try {
+
+            return RespBean.ok("查询成功", userService.getUser(id));
+        } catch (ParameterException e) {
+            return RespBean.error(e.getErrorMessage());
+        }catch (Exception e){
+            return RespBean.error("查询失败");
+        }
+
     }
     @RequestMapping("page")
-    public PageParams<User> pageUser(){
+    public RespBean pageUser(){
         PageParams pageParams=new PageParams();
         pageParams.setCheckFlag(false);
         pageParams.setUseFlag(true);
         pageParams.setPageSize(2);
         pageParams.setPage(1);
-        return userService.getUserPage(pageParams);
+
+        return RespBean.ok("查询成功",userService.getUserPage(pageParams));
     }
 }

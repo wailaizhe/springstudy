@@ -1,6 +1,7 @@
 package spring.service;
 
 import spring.entity.User;
+import spring.exception.ParameterException;
 import spring.page.PageParams;
 
 /**
@@ -13,6 +14,6 @@ import spring.page.PageParams;
 public interface UserService {
     String getUserName();
     void getUser(String name);
-    User getUser(Integer id);
+    User getUser(Integer id) throws ParameterException;
     PageParams<User> getUserPage(PageParams pageParams);
 }

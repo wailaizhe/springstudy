@@ -5,8 +5,10 @@ import org.springframework.stereotype.Service;
 import spring.dao.CityDao;
 import spring.dao.UserDao;
 import spring.entity.User;
+import spring.exception.ParameterException;
 import spring.page.PageParams;
 import spring.service.UserService;
+import spring.util.VerifyParamsUtils;
 
 import java.util.List;
 
@@ -32,7 +34,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUser(Integer id) {
+    public User getUser(Integer id) throws ParameterException {
+        VerifyParamsUtils.notNull(id,"id 不能为空");
         return userDao.getUser(id);
     }
 
