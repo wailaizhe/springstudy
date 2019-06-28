@@ -29,13 +29,13 @@ public class MQConsumeMsgListenerProcessor implements MessageListenerConcurrentl
         String msg = new String(messageExt.getBody());
         //logger.info("接收到的消息是："+messageExt.toString());
         log.info("接收到的消息是："+msg);
-        if(messageExt.getTopic().equals("你的topic")){
-            if(messageExt.getTags().equals("你的tag")){
+        if(messageExt.getTopic().equals("TopicTest")){
+            if(messageExt.getTags().equals("Tag1")){
                 int reconsumeTimes = messageExt.getReconsumeTimes();
                 if(reconsumeTimes == 3){
                     return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
                 }
-                //TODO 处理对应的业务逻辑
+                System.out.println("this is my message");
             }
         }
 

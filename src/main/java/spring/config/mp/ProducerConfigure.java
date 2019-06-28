@@ -18,6 +18,8 @@ import org.springframework.context.annotation.Configuration;
 public class ProducerConfigure {
     @Autowired
     private ProducerConfig producerConfigure;
+    private DefaultMQProducer defaultProducer;
+
     /**
      * 创建普通消息发送者实例
      *
